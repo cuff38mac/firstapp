@@ -1,0 +1,86 @@
+<!doctype html>
+<head>
+<meta name="viewport" content="initial-scale=1.0,width=device-width" />
+<title>Responsive Design Calculator</title>
+<style>
+* {
+	padding:0%;
+	margin:0%;
+}
+
+body {
+	width:100%;
+}
+
+section {
+	display:block;
+	margin:2% auto;
+	width:90%;
+	height:auto;
+
+}
+
+#calc {
+	padding:4%;
+	width:100%;
+	margin: 0% auto;
+	
+}
+
+p {
+	font: 1.1em bold Tahoma, serif;
+	margin:auto;
+}
+
+#target, #context {
+	width:20%;
+	margin:1%;
+
+}
+
+h4 {
+	margin:auto;
+	width:100%;
+	font:1.7em;
+}
+
+</style>
+
+</head>
+<body>
+
+<section>
+<h4> Calculate the percentage for Responsive Design</h4>
+<h5> using formula <i>target / context = result * 100</i></h5>
+
+<form id="calc">
+<p>Your target&nbsp;<input type="text" id="target" size="3">px
+<p>&nbsp;&divide;&nbsp;</p>
+<p>Your context <input type="text" id="context" size="3">px
+<br /> = <br />
+<label for="btn-calc"></label>
+<input type="submit" value="Calculate" id="btn-calc">
+<input type="text" id="text-calc" placeholder="0%">
+</p>
+
+</form>
+</section>
+
+</body>
+<script>
+
+document.getElementById('calc').addEventListener('submit', calculatePercent);
+
+function calculatePercent(event) {
+	event.preventDefault();
+
+
+var target = parseInt(document.getElementById("target").value, 10) || 0;
+var context = parseInt(document.getElementById("context").value, 10) || 0;
+var results = (target / context) * 100;
+
+console.log(results);
+document.getElementById('text-calc').value = (results + "% ");
+}
+</script>
+</html>
